@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'climb/style.css' %}" />
+	<title>My Climb</title>
+	<link rel="stylesheet" type="text/css" href="static\style.css">
+	<link href='http://fonts.googleapis.com/css?family=Allura' rel='stylesheet' type='text/css'>
+	
+</head>
+<body>
+	<div id='head' style="position: sticky;">
+		<span style="margin-left:30px;"><span style="font-size:20px;">My</span> Climb</span>
+		
+	</div>
+
+	<div id='content'>
+		<div id='goals'>
+		{% if latest_goal_list %}
+    		
+    		{% for goal in latest_goal_list %}
+        		
+        		<div class="goal">{{goal.text}}</div>
+    		{% endfor %}
+    		
+		{% else %}
+    		<p>No polls are available.</p>
+		{% endif %}
+			
+		</div>
+		<div id='sidebar'>
+			<span style="float: right; font-size: 25px;">Taras Melnychuk</span><br>
+		</div>
+	</div>
+	<div id='footer'></div>
+
+</body>
+</html>

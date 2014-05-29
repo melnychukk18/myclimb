@@ -1,0 +1,63 @@
+{% extends "climb/base.html" %}
+<!--<span id='title'>Main goal title</span>
+			<span id='unfinished'>99</span>
+			<span id='cathegory'>education</span>
+			<span id='cathegory'>business</span>
+			<span id='description'>This is my description for that goal. London is the capital of Great Britain.
+			Everything is awful. I'm not going to Zaxid. Fuuuuuuuuuuuuuuuuuuuuuk!!</span>
+
+
+			<!--<span id='datepublished'>Date published: 01.01.0001</span>
+			<span id='datepublished'>Finished goals: 99</span>
+			<span id='datepublished'>Deadline: 01.01.0001</span>
+
+
+			<div id='plus1'></div>
+			<table id='goal_bottom'>
+				<td id='table_name'>Published:</td>
+				<td><span id='table_num'>01.01.0001</span></td>
+				<td id='table_name'>Deadline:</td>
+				<td><span id='table_num'>01.01.0001</span></td>
+				<td id='table_name'>Finished goals:</td>
+				<td><span id='table_num'>99</span></td>
+			</table>-->
+{% block content %}
+	{% if main_goal_list %}
+    	{% for g in main_goal_list %}
+    		<div id='goal'>
+    			<span id='title'>{{g.0.title}}</span>
+    			<span id='unfinished'>{{g.1}}</span>
+    			<span id='description'>{{g.0.description}}</span>
+
+    			<table id='goal_bottom'>
+				<td id='table_name'>Published:</td>
+				<td><span id='table_num'>01.01.0001</span></td>
+				<td id='table_name'>Deadline:</td>
+				<td><span id='table_num'>01.01.0001</span></td>
+				<td id='table_name'>Finished goals:</td>
+				<td><span id='table_num'>99</span></td>
+			</table>
+        		<!--<a href="goalslist/{{g.0.id}}">
+        		  {{g.0.title}}
+                  <a href="addtomain/{{g.0.id}}" style="font-size:20px;color: black; float: right;">add goal</a>
+                        <span>Unfinished: {{g.1}}</span>
+                        <br>
+                        <span style="font-size:15px;">{{g.0.description}}</span>
+                  </div>
+
+                </a>-->
+                
+			</div> 
+    		{% endfor %}
+    		
+		{% else %}
+    		<p>No goals are available.</p>
+		{% endif %}
+	   <a href="add">add main goal</a>
+          
+{% endblock %}
+{% block userinfo %}
+	{{username}}
+	{{firstname}}
+	{{lastname}}
+{% endblock %}

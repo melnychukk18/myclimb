@@ -1,0 +1,24 @@
+{% extends "climb/base_not_log.html" %}
+{% block headmenu %}
+<a href="/">register</a>
+{% endblock %}
+{% block rightbar %}
+<form method='post'>
+{% csrf_token %}
+
+<div id='register'>
+	<span style='font-size: 30px; display: block;'>Login</span>
+	<table id='reg_table'>
+	<tr>
+		<td>Email:</td>
+		<td>{{ form.username }}</td>
+	</tr>
+	<tr>
+		<td>Password:</td>
+		<td>{{ form.password }}</td>
+	</tr>
+	</table>
+	<input type="submit" value="login">
+</div>
+</form>
+{% endblock %}

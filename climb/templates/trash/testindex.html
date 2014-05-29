@@ -1,0 +1,9 @@
+{% if latest_goal_list %}
+    <ul>
+    {% for goal in latest_goal_list %}
+        <li><a href="/goals/{{ goal.id }}/">{{ goal.text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

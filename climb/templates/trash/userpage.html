@@ -1,0 +1,22 @@
+{% extends "climb/base.html" %}
+{% block headmenu %}
+    <a href="/logout/" style="float: right; font-size:30px;
+            margin-top: 20px; margin-right:30px;
+            text-decoration: none; color: white;">logout</a>
+{% endblock %}
+{% block content %}
+<div id='goals'>
+    <h1>{{ username }}</h1>
+		{% if latest_goal_list %}
+    		
+    		{% for g in latest_goal_list %}
+        		
+        		<div class="goal">{{g.goal}}</div>
+    		{% endfor %}
+    		
+		{% else %}
+    		<p>No goals are available.</p>
+		{% endif %}
+			
+</div>
+{% endblock %}

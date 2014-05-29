@@ -1,0 +1,38 @@
+{% extends "climb/base.html" %}
+{% block headmenu %}
+    <a href="/logout/" style="float: right; font-size:30px;
+            margin-top: 15px; margin-right:30px;
+            text-decoration: none; color: white;">logout</a>
+{% endblock %}
+{% block content %}
+<div id='goals'>
+    
+    
+		{% if tasklist %}
+    		
+    		{% for g in tasklist %}
+            <div class="user_goal">
+        		{{g.text}}<br>
+                {{g.maingoal_id.title}}
+            </div>
+
+                
+                
+
+    		{% endfor %}
+    		
+		{% else %}
+    		<p>No goals are available.</p>
+		{% endif %}
+	   <a href="add">add main goal</a>
+       </div>    
+{% endblock %}
+{% block main_sidebar %}    
+        <span style="font-size:25px; float: right;">
+            <br>
+            <a href="daybook" style="font-size: 15px;">my daybook</a><br>
+            <a href="/mypage" style="font-size: 15px;">my goals</a><br>
+            <a href="daybook" style="font-size: 15px;">my tasks</a>
+        </span>
+
+    {% endblock %}

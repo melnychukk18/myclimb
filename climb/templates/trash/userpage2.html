@@ -1,0 +1,16 @@
+{% extends "climb/base.html" %}
+{% block content %}
+<div id='goals'>
+		{% if latest_goal_list %}
+    		
+    		{% for goal in latest_goal_list %}
+        		
+        		<div class="goal">{{goal.text}}</div>
+    		{% endfor %}
+    		
+		{% else %}
+    		<p>No goals are available.</p>
+		{% endif %}
+			
+</div>
+{% endblock %}

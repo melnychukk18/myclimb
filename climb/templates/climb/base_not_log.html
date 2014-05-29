@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'climb/style.css' %}" />
+	<title>My Climb</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Allura' rel='stylesheet' type='text/css'>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	
+</head>
+<body>
+	<!--<script>
+		if (typeof jQuery != 'undefined') {  
+    alert('nooooooo')
+}		$(function(){
+		$('#header').hover(function(){
+			$("#container").css({'background-color':'red'});
+			alert('asdfasdf');
+		});
+			});	
+	</script>-->
+		<div id='header'><span id='logo'><span style='font-size:20px;'>my</span>Climb</span>
+			<div id='headermenu'>
+				<table style="width: 200px;">
+					<td>about us</td>
+					<td>
+					{% block headmenu %}
+					{% endblock %}</td>
+				</table>
+			</div>
+		</div>
+		<div id='container'>
+			<div id='index_leftbar'>
+				{% block leftbar %}
+				{% endblock %}
+			</div>
+			<div id='index_rightbar'>
+				{% block rightbar %}
+				{% endblock %}
+			</div>
+		
+			
+			</div>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "climb/base.html" %}
+{% block content %}
+<form method='post'>
+{% csrf_token %}
+<div id="about">
+	{{ form.title }}
+	{{ form.text }}
+	<input type="submit" value="add" class="reg_text">
+</div>
+</form>
+{% endblock %}
+{% block main_sidebar %}    
+        <span style="font-size:25px; float: right;">{{ username }}</span>
+    {% endblock %}

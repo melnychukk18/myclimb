@@ -1,0 +1,32 @@
+{% extends "climb/base_userpage.html" %}
+{% block script %}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.navbar-li-home').addClass('active');
+		$('.sb-mygoals').addClass('active');
+	});
+	angular.module('myModule', ['ui.bootstrap']);
+	var PopoverDemoCtrl = function ($scope) {
+  		$scope.dynamicPopover = 'Hello, World!';
+  		$scope.dynamicPopoverTitle = 'Title';
+	};
+</script>
+{% endblock %}
+
+{% block content %}
+	<ul class="nav nav-pills" ng-app="plunker">
+		<li><a href="/">Back</a></li>
+  		<li><a href="add">Add task</a></li>
+  		<li><button popover="I appeared on mouse enter!" popover-trigger="mouseenter" class="btn btn-default">Mouseenter</button></li>
+	</ul>
+	<h1>{{goal.title}}</h1>
+	<p>{{goal.description}}</p>
+	{% for i in tasks %}
+		<h2>{{i.text}}</h2>
+		<p style="color: red">{{i.deadline}}</p>
+		<form action="done{{i.id}}/">
+			<input type="submit" class="btn btn-success" value="Done">
+		</form>
+	{% endfor %}
+	
+{% endblock %}

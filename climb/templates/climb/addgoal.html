@@ -1,0 +1,26 @@
+{% extends "climb/base_userpage.html" %}
+{% block script %}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.navbar-li-home').addClass('active');
+		$('.sidebar-mygoals').addClass('active');
+	});
+</script>
+{% endblock %}
+{% block content %}
+<ul class="nav nav-pills">
+  						<li><a href="/">List of goals</a></li>
+  						<li class="active"><a href="">Add</a></li>
+					</ul>
+<form method='post'>
+{% csrf_token %}
+<div id="about">
+	{{ form.title }}
+	{{ form.text }}
+	<input type="submit" value="add"class="btn btn-default mybtn">
+</div>
+</form>
+{% endblock %}
+{% block main_sidebar %}    
+        <span style="font-size:25px; float: right;">{{ username }}</span>
+    {% endblock %}

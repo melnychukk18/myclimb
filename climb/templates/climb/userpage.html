@@ -1,0 +1,35 @@
+{% extends "climb/base_userpage.html" %}
+{% block script %}
+<script type="text/javascript">
+	$(document).ready(function(){
+				$('.goal').mouseenter(function(){
+					$(this).css('background-color','#f8f8f8');
+					$(this).css('cursor','pointer');
+				});
+				$('.goal').mouseleave(function(){
+					$(this).css('background-color','white');
+				});
+			});
+	$(document).ready(function(){
+		$('.navbar-li-home').addClass('active');
+		$('.sidebar-mygoals').addClass('active');
+	});
+</script>
+{% endblock %}
+{% block content %}
+					<ul class="nav nav-pills">
+  						<li class="active"><a href="/">List of goals</a></li>
+  						<li><a href="add">Add</a></li>
+					</ul>
+{% if main_goal_list %}
+    					{% for g in main_goal_list %}
+    						<div class="goal">
+    							<h2>{{g.0.title}}<span class="badge pull-right">{{g.1}}</span></h2>
+							<p>{{g.0.description}}</p>
+    						</div>
+    					{% endfor %}
+    		
+					{% else %}
+    					<p>No goals are available.</p>
+					{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "climb/base_userpage.html" %}
+{% block script %}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.navbar-li-home').addClass('active');
+		$('.sb-daybook').addClass('active');
+	});
+</script>
+{% endblock %}
+{% block content %}
+<ul class="nav nav-pills">
+  	<li><a href="/daybook_posts">Posts</a></li>
+  	<li><a href="/daybook_activities">Activities</a></li>
+  	<li class="active"><a href="">Add</a></li>
+</ul>
+	<h1>daybook add</h1>
+{% endblock %}

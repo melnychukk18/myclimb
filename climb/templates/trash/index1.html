@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Climb</title>
+	<link rel="stylesheet" type="text/css" href="static\style.css">
+	<link href='http://fonts.googleapis.com/css?family=Allura' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div id='head' >
+		<span style="margin-left:30px;"><span style="font-size:20px;">My</span> Climb</span>
+		<div id='login_form'>
+			<input type="text" class="login" onclick="this.value='';" onfocus="if(this.value == 'value') { this.value = ''; }" onblur="this.value=!this.value?'Email':this.value;" value="Email">
+			<input type="text" class="login" onclick="this.value=''; setAttribute('type', 'password');" onfocus="if(this.value == 'value') { this.value = ''; }" onblur="if (this.value == '') {this.value = 'Password';setAttribute('type', 'text');}" value="Password">
+			<input type="button" value="log in" class="login">
+		</div>
+	</div>
+
+	<div id='content'>
+		<div id='about'>about</div>
+		<div id='register'>
+			<span style="font-size: 30px; color: rgba(0,0,0,0.5);">Registration</span>
+			<input type="text" class="reg_text" onclick="this.value='';" onfocus="if(this.value == 'value') { this.value = ''; }" onblur="this.value=!this.value?'First name':this.value;" value="First name">
+			<input type="text" class="reg_text" onclick="this.value='';" onfocus="if(this.value == 'value') { this.value = ''; }" onblur="this.value=!this.value?'Last name':this.value;" value="Last name">
+			<input type="text" class="reg_text" onclick="this.value=''; setAttribute('type', 'password');" onfocus="if(this.value == 'value') { this.value = ''; }" onblur="if (this.value == '') {this.value = 'Password';setAttribute('type', 'text');}" value="Password">
+			<input type="text" class="reg_text" onclick="this.value='';" onfocus="if(this.value == 'value') { this.value = ''; }" onblur="this.value=!this.value?'Email':this.value;" value="Email">
+			<input type="button" class="reg_text" value="join us" />
+		</div>
+	</div>
+	<div id='footer'></div>
+
+</body>
+</html>

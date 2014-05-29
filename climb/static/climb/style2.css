@@ -1,0 +1,140 @@
+body{
+	
+	font-family: verdana;
+}
+a{
+	color: red;
+}
+#id_text{
+	box-shadow: 3px 3px #5CD6F7;
+	width: 600px;
+	font-size: 20px;
+	color: rgba(0,0,0,0.6);
+	resize: none;
+}
+#head{
+	
+	height: 60px;
+	width: 1000px;
+	background-color: #5CD6F7;
+	margin: 0 auto;
+	font-family: 'Allura', cursive;
+	color: white;
+	font-size: 45px;
+	margin-top: -8px;
+	position: relative;
+	
+}
+#content{
+	height: 700px;
+	width: 990px;
+	background-color: rgba(0,0,0,0.05);
+	
+	margin: 0 auto;
+	
+}
+#about{
+	width: 610px;
+	height: 500px;
+	
+	position: absolute;
+	margin-left: 20px;
+	margin-top: 20px;
+	
+}
+#register{
+	
+	
+	float: right;
+	width: 260px;
+	height: 400px;
+	margin-right: 20px;
+	margin-top: 20px;
+	
+
+}
+.reg_text{
+
+	width: 240px;
+	height: 30px;
+	margin: 20px 20px 0px 20px;
+	float: right;
+	border: 0px;
+	box-shadow: 3px 3px #5CD6F7;
+	font-size: 20px;
+	color: rgba(0,0,0,0.3);
+}
+#login_form{
+	height: 30px;
+	
+	right: 5px;
+	bottom: 20px;
+	position: absolute;
+	margin-right: 5px;
+	
+}
+.login{
+	border: 0px;
+	height: 20px;
+	background-color: white;
+	color: rgba(0,0,0,0.3);
+}
+
+#goals{
+	width: 630px;
+	height: 700px;
+	margin-top: 20px;
+	margin-left: 30px;
+	
+	position: absolute;
+}
+#sidebar{
+	float: right;
+	width: 260px;
+	height: 400px;
+	margin-right: 20px;
+	margin-top: 20px;
+	color: rgba(0,0,0,0.5);
+	
+	right: 200px;
+}
+.goal{
+	width: 600px;
+	height: 150px;
+	background-color: rgb(249,249,249);
+	margin-bottom: 30px;
+	box-shadow: 3px 3px #5CD6F7; 
+	position: relative;
+	font-size: 25px;
+	color: rgba(0,0,0,0.5);
+}
+#register input{
+	width: 240px;
+	height: 30px;
+	margin: 20px 20px 0px 20px;
+	float: right;
+	border: 0px;
+	box-shadow: 3px 3px #5CD6F7;
+	font-size: 20px;
+	color: rgba(0,0,0,0.3);
+}
+.user_goal{
+	width: 620px;
+	height: 70px;
+	text-decoration: none;
+
+	background-color: rgb(249,249,249);
+	margin-bottom: 30px;
+	box-shadow: 3px 3px #5CD6F7; 
+	position: relative;
+	font-size: 25px;
+	color: rgba(0,0,0,0.5);
+}
+#main_sidebar{
+	float: right;
+	width: 260px;
+	height: 400px;
+	margin-right: 20px;
+	margin-top: 20px;
+	position: relative;
+}

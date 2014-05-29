@@ -1,0 +1,18 @@
+{% extends "climb/base.html" %}
+{% block content %}
+    <div id='about'>about</div>
+    <div id='register'>
+        <span style="font-size: 30px; color: rgba(0,0,0,0.5);">Registration</span>
+        <input type="text" class="reg_text" value="{% firstname %}">
+        <input type="text" class="reg_text" value="{% lastname %}">
+        <input type="text" class="reg_text" value="{% password %}">
+        <input type="text" class="reg_text" value="{% email %}">
+    </div>
+{% endblock %}
+
+<!--<span style="font-size: 30px; color: rgba(0,0,0,0.5);">Registration</span>
+        <input type="text" class="reg_text" onclick="this.value='';" onfocus="if(this.value == 'value') { this.value = ''; }" onblur="this.value=!this.value?'First name':this.value;" value="First name">
+        <input type="text" class="reg_text" onclick="this.value='';" onfocus="if(this.value == 'value') { this.value = ''; }" onblur="this.value=!this.value?'Last name':this.value;" value="Last name">
+        <input type="text" class="reg_text" onclick="this.value=''; setAttribute('type', 'password');" onfocus="if(this.value == 'value') { this.value = ''; }" onblur="if (this.value == '') {this.value = 'Password';setAttribute('type', 'text');}" value="Password">
+        <input type="text" class="reg_text" onclick="this.value='';" onfocus="if(this.value == 'value') { this.value = ''; }" onblur="this.value=!this.value?'Email':this.value;" value="Email">
+        <input type="button" class="reg_text" value="join us" /> -->

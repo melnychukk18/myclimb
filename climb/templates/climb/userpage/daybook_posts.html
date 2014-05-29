@@ -1,0 +1,51 @@
+{% extends "climb/base_userpage.html" %}
+{% block script %}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.navbar-li-home').addClass('active');
+		$('.sb-daybook').addClass('active');
+	});
+</script>
+{% endblock %}
+{% block content %}
+<ul class="nav nav-pills">
+  	<li class="active"><a href="">Posts</a></li>
+  	<li><a href="/daybook_activities">Activities</a></li>
+  	<li><a href="/daybook_add">Add</a></li>
+  	<li>
+  		<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+  						<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+ 							<div class="modal-dialog modal-lg">
+ 							<form method='post'>
+							{% csrf_token %}
+							
+    						<div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              
+                            </div>
+                            <div class="modal-body">
+                              {{ form.text }}
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <input type="submit" value="add" >
+                            </div>
+                    </div>
+                    		</form>
+                        	</div>
+                      </div>
+  	</li>
+</ul>
+{% for i in posts %}
+<div class="daybook-post">
+	<div class="d-post-date">
+		{{i.pub_date}}
+	</div>
+	<div class="d-post-text">
+		<p>{{i.text}}</p>
+	</div>
+</div>
+{% endfor %}
+	
+{% endblock %}

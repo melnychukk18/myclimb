@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		<title></title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+    	<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+    	<script src="{% static 'climb/js/example.js' %}"></script>
+    	<script src="{% static 'climb/js/debounced.js' %}"></script>
+    	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    	<!-- ____________DATETIME PICKER__________________-->
+    	<link href="{% static 'climb/css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet" media="screen">
+		<script type="text/javascript" src="{% static 'climb/js/bootstrap-datetimepicker.js' %}" charset="UTF-8"></script>
+		<!--<link rel="stylesheet" type="text/css" href="{% static 'climb/css/bootstrap.css' %}">-->
+		
+		<!--<script type="text/javascript" src="{% static 'climb/js/angular.min.js' %}"></script>-->
+		<script type="text/javascript" src="{% static 'climb/js/bootstrap.js' %}"> </script>
+		<!--<script type="text/javascript" src="{% static 'climb/js/ui-bootstrap.min.js' %}"></script>-->
+		<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="{% static 'climb/css/style.css' %}">
+		
+		{% block script %}
+		{% endblock %}
+	</head>
+	<body>
+		<div class="navbar navbar-default navbar-static-top  mynavbar" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">myClimb</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-li-home"><a href="">Home</a></li>
+            <li><a href="">Settings</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+	    <div class="main">
+		    <div class="container">
+			    <div class="row content">
+				    <div class="col-md-9">
+					
+					{% block content %}
+					{% endblock %}
+					</div>
+					<div class="col-md-3">
+						<div class="row">
+							<div class="col-md-8">
+								<h3>{{user.first_name}}</h3>
+							</div>
+							<div class="col-md-4">
+								<img class="img-responsive" src="http://3.bp.blogspot.com/_U2gsM2wsj8k/S3IGKdRpAGI/AAAAAAAAAYg/RAIdKKUTHjM/s320/cartoon-boy-face-with-smile.jpg">
+							</div>
+							</div>
+							<div class="sidebar">
+								<div class="content">
+								<!--<div class="btn-group-vertical pull-right mygroup">
+									<button class="btn btn-default mybtn"><a href="/">my goals</a></button>
+									<button class="btn btn-default mybtn"><span class="badge pull-right">42</span>deadlines</button>
+									<button class="btn btn-default mybtn">daybook</button>
+									<button class="btn btn-default mybtn">statistics</button>
+									<button class="btn btn-default mybtn">today</button>
+								</div>-->
+									<ul class="nav nav-pills mygroup">
+  										<li class="mybtn sb-today"><a href="/today">today</a></li>
+  										<li class="mybtn sb-mygoals"><a href="/">my goals</a></li>
+  										<li class="mybtn sb-deadlines"><a href="/deadlines"><span class="badge pull-right">42</span>deadlines</a></li>
+  										<li class="mybtn sb-daybook"><a href="/daybook_posts">daybook</a></li>
+  										<li class="mybtn sb-statistics"><a href="/statistics">statistics</a></li>
+									</ul>
+								
+								</div>
+							</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

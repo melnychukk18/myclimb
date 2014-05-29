@@ -1,0 +1,49 @@
+{% extends "climb/base_userpage.html" %}
+{% block script %}
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.form_date').datetimepicker({
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0,
+        format: 'yyyy-mm-dd'
+    });
+$('.form_time').datetimepicker({
+        
+        weekStart: 1,
+        todayBtn:  0,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 1,
+    minView: 0,
+    maxView: 1,
+    forceParse: 0
+    });
+});	
+</script>
+{% endblock %}
+{% block content %}
+
+<form method='post'>
+			{% csrf_token %}
+			{{form.text}}
+			<div id='choosetime'>
+			<div class="controls input-append date form_date" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd" style="float: left;">
+                {{form.date}}
+                <span class="add-on"><i class="icon-th"></i></span>
+            </div>
+            <div class="controls input-append date form_time" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+                {{form.time}}
+                <span class="add-on"><i class="icon-th"></i></span>
+            </div>
+        </div>
+        <input type="submit" value="add" class="btn btn-default mybtn">
+ </form>
+	
+	
+	
+{% endblock %}

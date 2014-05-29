@@ -1,0 +1,99 @@
+{% extends "climb/base_userpage.html" %}
+{% block script %}
+<script type="text/javascript">
+
+    // Your event handler code goes here.
+    $(document).ready(function(){
+				$('.goal').hover(
+					function(){
+						$(this).css('background-color','#f8f8f8');
+						$(this).css('cursor','pointer');
+						var x = $(this).find('.testjq');
+						x.stop().show('slow');
+						//$(this).stop().animate({ height:'200px' }, 500);
+					},
+					function(){
+						$(this).css('background-color','white');
+						$('.testjq').stop().hide('slow');
+						//$(this).stop().animate({ height:'100px' }, 500);
+					});
+				
+			});
+	$(document).ready(function(){
+		$('.navbar-li-home').addClass('active');
+		$('.sb-mygoals').addClass('active');
+		$('.form_date').datetimepicker({
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0,
+        format: 'yyyy-mm-dd'
+    });
+$('.form_time').datetimepicker({
+        
+        weekStart: 1,
+        todayBtn:  0,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 1,
+    minView: 0,
+    maxView: 1,
+    forceParse: 0
+    });
+	});
+</script>
+{% endblock %}
+{% block content %}
+					<ul class="nav nav-pills">
+  						<li class="active"><a href="/">List of goals</a></li>
+  						<li><a href="/addgoal">Add</a></li>
+  						<li>
+  						<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+  						<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+ 							<div class="modal-dialog modal-lg">
+ 							<form method='post'>
+							{% csrf_token %}
+							
+    				<div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              {{ form.title }}
+                            </div>
+                            <div class="modal-body">
+                              {{ form.text }}
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <input type="submit" value="add" class="btn btn-default">
+                            </div>
+                    </div>
+                    		</form>
+                        	</div>
+                      </div>
+  						</li>
+					</ul>
+{% if main_goal_list %}
+    					{% for g in main_goal_list %}
+    					<a href="/goal{{g.0.pk}}" style="display: block; text-decoration: none; color: black; height: 100%;">
+    						<div class="goal">
+    						
+    							<h2>{{g.0.title}}<span class="badge pull-right">{{g.1}}</span></h2>
+							<p>{{g.0.description}}</p>
+							<div class='testjq' style="display: none;">
+							<form action="/deletegoal{{g.0.pk}}">
+								<span>Pub date: {{g.0.pub_date}}</span>
+								<input type='submit'value='Delete' class="btn btn-warning" style="height: 20px;">
+							</form>
+							</div>
+    						</div>
+    						
+    						</a>
+    					{% endfor %}
+    		
+					{% else %}
+    					<p>No goals are available.</p>
+					{% endif %}
+{% endblock %}

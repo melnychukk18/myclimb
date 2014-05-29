@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="{% static 'climb/css/bootstrap.css' %}">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="{% static 'climb/js/angular.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'climb/js/ui-bootstrap.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'climb/js/bootstrap.js' %}"> </script>
+		<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="{% static 'climb/css/style.css' %}">
+		<style type="text/css">
+			html, body {
+				width:100%; 
+				height:100%;
+			}
+			#wrapper{
+				height: calc(100% - 50px);
+			}
+			#wrapper .container h1{
+				font-family: 'Bitter', serif;
+				font-weight: bold;
+				color: white;
+
+			}
+			img{
+				max-width: 100%;
+				margin: 0 auto;
+				height: auto;
+			}
+			.about .row{
+				margin-top: 20px;
+			}
+		</style>
+		<script type="text/javascript">
+			var PopoverDemoCtrl = function ($scope) {
+  				$scope.dynamicPopover = 'Hello, World!';
+  				$scope.dynamicPopoverTitle = 'Title';
+			};
+		</script>
+	</head>
+	<body style="background-color: #f8f8f8;">
+		<div class='navbar navbar-default' role='navigation' style="margin-bottom:0px;">
+			<div class="container">
+					<a class="navbar-brand" href="#">myClimb</a>
+				
+				<form method='post' class="form-inline pull-right" role='form' style="margin-top:10px;">
+					{% csrf_token %}
+					<div class="form-group">
+						<label class="sr-only" for='inputEmail'>Email</label>
+						{{ form.username }}
+						<!--<input type="email" class="form-control" id='inputEmail' placeholder='Email'>-->
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for='inputPass'>Password</label>
+						{{ form.password }}
+						<!--<input type='password' class="form-control" id='inputPass' placeholder='Password'>-->
+					</div>
+					<input type="submit" class="btn btn-success" value="login">
+				</form>
+			</div>
+		</div>
+		<div id='wrapper' style="background-image: url({% static 'climb/img/background.jpg' %});">
+			<div class="container">
+				<h1>You can do everything,<br> if you only want</h1>
+			</div>
+		</div>
+</body>
+</html>

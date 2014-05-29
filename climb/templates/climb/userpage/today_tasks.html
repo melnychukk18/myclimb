@@ -1,0 +1,78 @@
+{% extends "climb/base_userpage.html" %}
+{% block script %}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.navbar-li-home').addClass('active');
+		$('.sb-today').addClass('active');
+		$('.doings-item').click(function(){
+			$('.doings-item').css('height','50px')
+			$(this).css('height','100px');
+		});
+		$('.act_value').change(function(){
+			var b = $(this).parent();
+			var a = $(b).find('.myth').val();
+			$(b).find('.texthide').val(a);
+			//var a = $('.myth').val();
+			//$('.texthide').val(a);
+		});
+	});
+</script>
+{% endblock %}
+{% block content %}
+
+<div class="row">
+
+
+	<div class="col-md-7">
+	<span class='today_top'>Today</span>
+	{% for t in tasks %}
+		{% if t.if_done == False %}
+	<div class="today-task">
+		<div class='today-task-left'>
+			<span class='today-task-title'>{{t.text}}</span>
+			<p>{{t.deadline.time}}</p>
+		</div>
+		<div class="today-task-right">
+		<form action="/tdone{{t.pk}}/">
+			<input type="submit" class="btn btn-success" value="Done">
+		</form>
+		</div>
+		</div>
+		{% endif %}
+	{% endfor %}
+	{% for t in tasks %}
+		{% if t.if_done == True %}
+		<div class="today-task alert-success" style="background-color: #74E868;">
+		<div class='today-task-left'>
+			<span class='today-task-title'><s>{{t.text}}</s></span>
+			<p><s>{{t.deadline.time}}</s></p>
+		</div>
+		<div class="today-task-right">
+		</div>
+		</div>
+		{% endif %}
+	{% endfor %}
+	</div>
+	<div class="col-md-5">
+		<span class='today_top'>Doings</span>
+		{% for a in activities %}
+		<div class="doings-item">
+			<form method="post">
+			{% csrf_token %}
+				<span style="font-size: 20px; display: block;">{{a.0.action}}<span class="badge pull-right">{{a.1}} {{a.0.name_value}}</span></span>
+				{{form.value}}
+				{{form.act_id}}
+				<input type="text" value="{{a.0.pk}}" class="texthide myth">
+				<input type="submit">
+			</form>
+		</div>
+		{% endfor %}
+		<div class="doings-item">
+			<span style="font-size: 20px; display: block;">Programming<span class="badge pull-right">3 hours</span></span>
+		</div>
+		<div class="doings-item">
+			<span style="font-size: 20px; display: block;">Sport<span class="badge pull-right">1 hour</span></span>
+		</div>
+	</div>
+</div>
+{% endblock %}
